@@ -166,7 +166,7 @@ io.on('connection', (socket) => {
 
       lobbies[socket.lobby].guessable = false
       const normalizedWord = normalizeWord(word)
-      const normalizedPlayerWord = lobbies[socket.lobby].players[active].word
+      const normalizedPlayerWord = normalizeWord(lobbies[socket.lobby].players[active].word)
 
       if (word && normalizedWord === normalizedPlayerWord) {
          lobbies[socket.lobby].winners++
