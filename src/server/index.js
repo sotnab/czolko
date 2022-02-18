@@ -43,7 +43,12 @@ io.on('connection', (socket) => {
          cb(false)
          socket.emit('error', 'Lobby nie istnieje')
          return
+      } else if (lobbies[code].started) {
+         cb(false)
+         socket.emit('error', 'Gra się rozpoczeła')
+         return
       }
+
       if (lobbies[code].players.filter((item) => item.nickname === nickname).length) {
          cb(false)
          socket.emit('error', 'W lobby jest już gracz o takim nicku')
