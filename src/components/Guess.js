@@ -10,10 +10,12 @@ const Guess = ({ id, activeId, guessable }) => {
    const handleSubmit = (event) => {
       event.preventDefault()
       socket.emit('guess-word', word)
+      setWord('')
    }
 
    const skipTurn = () => {
       socket.emit('guess-word', null)
+      setWord('')
    }
 
    return (
