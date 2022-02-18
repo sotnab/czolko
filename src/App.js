@@ -7,7 +7,7 @@ import { createContext } from 'react';
 import logo from './logo.svg'
 import Results from './components/Results';
 
-const socket = io('https://czolko-server.vercel.app')
+const socket = io('/')
 export const SocketContext = createContext(socket)
 const App = () => {
 
