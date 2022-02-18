@@ -1,4 +1,5 @@
 const express = require('express')
+const removeDiacritics = require('diacritics').remove
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
@@ -164,8 +165,10 @@ io.on('connection', (socket) => {
       const active = lobbies[socket.lobby].active
 
       lobbies[socket.lobby].guessable = false
+      const normalizedWord = normalizeWord(word)
+      const normalizedPlayerWord = lobbies[socket.lobby].players[active].word
 
-      if (word && word === lobbies[socket.lobby].players[active].word) {
+      if (word && normalizedWord === normalizedPlayerWord) {
          lobbies[socket.lobby].winners++
          lobbies[socket.lobby].players[active].place = lobbies[socket.lobby].winners
          lobbies[socket.lobby].players[active].won = true
@@ -213,6 +216,18 @@ io.on('connection', (socket) => {
    const hasLobby = () => {
       if (socket.lobby) return true
       return false
+   }
+
+
+
+   const normalizeWord = (word) => {
+      if (!word) return null
+
+      word = word.trim()
+      word = removeDiacritics(word)
+      word = word.toLowerCase()
+
+      return word
    }
 })
 
