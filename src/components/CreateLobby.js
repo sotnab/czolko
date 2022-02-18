@@ -10,7 +10,7 @@ const CreateLobby = () => {
    const nav = useNavigate()
 
    useEffect(() => {
-      // if (socket.disconnected) socket.connect()
+      if (socket.disconnected) socket.connect()
 
       socket.on('error', (message) => {
          setError(message)

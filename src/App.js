@@ -1,11 +1,11 @@
 import CreateLobby from './components/CreateLobby'
 import Game from './components/Game';
 import Lobby from './components/Lobby'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { io } from 'socket.io-client';
-import { createContext } from 'react';
-import logo from './logo.svg'
 import Results from './components/Results';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createContext } from 'react';
+import { io } from 'socket.io-client';
+import logo from './logo.svg'
 
 const socket = io('/')
 export const SocketContext = createContext(socket)
