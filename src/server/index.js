@@ -6,6 +6,9 @@ const io = require('socket.io')(server)
 const PORT = process.env.PORT || 3231
 
 app.use(express.static(__dirname + '/../../build'))
+app.get('*', (req, res) => {
+   res.redirect('/')
+})
 
 const lobbies = []
 let timeout = null
