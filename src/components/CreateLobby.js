@@ -16,6 +16,8 @@ const CreateLobby = () => {
          setError(message)
       })
 
+      socket.on('joined', () => nav('lobby'))
+
       return () => {
          setCode('')
          setNickname('')
@@ -34,9 +36,7 @@ const CreateLobby = () => {
       e.preventDefault()
       if (!isNickPassed() || !isCodePassed()) return
 
-      socket.emit('join', code, nickname, (status) => {
-         if (status) nav('lobby')
-      })
+      socket.emit('join', code, nickname)
    }
 
    const isNickPassed = () => {

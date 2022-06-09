@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events;
+(function (Events) {
+    Events["CONNECTION"] = "connection";
+    Events["DISCONNECT"] = "disconnect";
+    Events["CREATE"] = "create";
+    Events["JOIN"] = "join";
+    Events["JOINED"] = "joined";
+    Events["GET_PLAYERS"] = "get-players";
+    Events["GET_GAME_DATA"] = "get-game-data";
+    Events["UPDATE_PLAYERS"] = "update-players";
+    Events["UPDATE_GAME_DATA"] = "update-game-data";
+    Events["SET_READINESS"] = "set-readiness";
+    Events["CHANGE_WORD"] = "change-word";
+    Events["GUESS_WORD"] = "guess-word";
+    Events["START_GAME"] = "start-game";
+    Events["GAME_STARTED"] = "game-started";
+    Events["GAME_OVER"] = "game-over";
+    Events["WIN"] = "win";
+})(Events || (Events = {}));
+exports.default = Events;
