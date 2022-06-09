@@ -10,7 +10,7 @@ import Player from './Player.js';
 const removeDiacritics = require('diacritics').remove;
 const app = express();
 const server = createServer(app);
-const io = new Server(server, { cors: { origin: '*' } });
+const io = new Server(server);
 
 const PORT = process.env.PORT || 3000;
 
