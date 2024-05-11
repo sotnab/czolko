@@ -15,7 +15,7 @@ const app = (0, express_1.default)();
 const server = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(server);
 const PORT = process.env.PORT || 30177;
-app.use(express_1.default.static(path_1.default.join(__dirname, '..', '..', '..', 'build')));
+app.use(express_1.default.static(path_1.default.join(__dirname, '..', '..', 'build')));
 app.get('*', (req, res) => res.redirect('/'));
 const lobbies = new Map();
 let timeout = null;

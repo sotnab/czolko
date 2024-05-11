@@ -14,7 +14,7 @@ const io = new Server(server);
 
 const PORT = process.env.PORT || 30177;
 
-app.use(express.static(path.join(__dirname, '..', '..', '..', 'build')));
+app.use(express.static(path.join(__dirname, '..', '..', 'build')));
 
 app.get('*', (req, res) => res.redirect('/'));
 
